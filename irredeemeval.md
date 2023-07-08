@@ -25,6 +25,9 @@ def e():
     while True:
         exec(input("> "))
 ```
+
+// next: use eval instead
+
 ===============
 
 "Alright, let's prevent imports."
@@ -35,6 +38,9 @@ def e():
     while True:
         print(eval(input("> ")))
 ```
+
+// next: remove builtins
+
 ===============
 
 "No more builtins!"
@@ -45,6 +51,9 @@ def e():
     while True:
         print(eval(input("> "), {"__builtins__": {}}))
 ```
+
+
+// next: replace dangerous names
 
 ===============
 
@@ -61,18 +70,31 @@ def e():
             print("bad user!")
 ```
 
+// could normalize, then getattr
+// next: and we could go on
+
 ===============
 
 *...and we could go on*
 
+// at some point I wouldn't know how to break out anymore
+// but someone else will.
+
 ===============
+
+// infinite loops, intentionally leak memory, ...
 
 Even if you were successful:
 - abuse of resources
 
 ===============
 
-solutions:
+# Don't try to make `eval` safe for user input.
+
+===============
+
+## What to use instead:
+
 - ast.literal_eval
 - json.loads
 - custom parsing
